@@ -285,66 +285,99 @@
 
 //Another Example
 
-function job(state) {
-  return new Promise(function (resolve, reject) {
-    if (state) {
-      resolve("success");
-    } else {
-      reject("error");
-    }
-  });
-}
+// function job(state) {
+//   return new Promise(function (resolve, reject) {
+//     if (state) {
+//       resolve("success");
+//     } else {
+//       reject("error");
+//     }
+//   });
+// }
 
-let promise = job(true);
+// let promise = job(true);
 
-promise
+// promise
 
-  .then(function (data) {
-    console.log(data);
+//   .then(function (data) {
+//     console.log(data);
 
-    return job(true);
-  })
+//     return job(true);
+//   })
 
-  .then(function (data) {
-    if (data !== "victory") {
-      throw "Defeat";
-    }
+//   .then(function (data) {
+//     if (data !== "victory") {
+//       throw "Defeat";
+//     }
 
-    return job(true);
-  })
+//     return job(true);
+//   })
 
-  .then(function (data) {
-    console.log(data);
-  })
+//   .then(function (data) {
+//     console.log(data);
+//   })
 
-  .catch(function (error) {
-    console.log(error);
+//   .catch(function (error) {
+//     console.log(error);
 
-    return job(false);
-  })
+//     return job(false);
+//   })
 
-  .then(function (data) {
-    console.log(data);
+//   .then(function (data) {
+//     console.log(data);
 
-    return job(true);
-  })
+//     return job(true);
+//   })
 
-  .catch(function (error) {
-    console.log(error);
+//   .catch(function (error) {
+//     console.log(error);
 
-    return "Error caught";
-  })
+//     return "Error caught";
+//   })
 
-  .then(function (data) {
-    console.log(data);
+//   .then(function (data) {
+//     console.log(data);
 
-    return new Error("test");
-  })
+//     return new Error("test");
+//   })
 
-  .then(function (data) {
-    console.log("Success:", data.message);
-  })
+//   .then(function (data) {
+//     console.log("Success:", data.message);
+//   })
 
-  .catch(function (data) {
-    console.log("Error:", data.message);
-  });
+//   .catch(function (data) {
+//     console.log("Error:", data.message);
+//   });
+
+//Promise.All , Incase of Multiple Asynchronous tasks have to do with single promise.
+
+// function job(delay) {
+//     return new Promise(function(resolve) {
+//         setTimeout(function() {
+//             console.log('Resolving', delay);
+//             resolve('done ' + delay);
+//         }, delay);
+//     });
+// }
+
+// var promise = Promise.all([job(1000), job(2000), job(500), job(1500)]);
+
+// promise.then(function(data) {
+//     console.log('All done');
+//     data.forEach(function(text) {
+//         console.log(text);
+//     });
+// });
+
+//Promise.race
+
+// function delay(time) {
+//     return new Promise(function(resolve) {
+//         setTimeout(resolve, time, 'success ' + time);
+//     });
+// }
+
+// Promise.race([delay(500), delay(100)]).then(function(data) {
+//     console.log(data);
+// });
+
