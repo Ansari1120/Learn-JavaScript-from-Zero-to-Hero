@@ -107,3 +107,12 @@ let arrried=["ahmed","ali","ansari"];
 arrried.forEach(element => {
     console.log(element);
 });
+
+let arrOfArrays = [];
+for (let i = 0; i < 3; i++){
+ arrOfArrays.push([]);
+ for (let j = 0; j < 7; j++) {
+ arrOfArrays[i].push(j);
+ }
+}
+console.table(arrOfArrays);
